@@ -3,7 +3,9 @@ writeCode
 Write code to execute below expressions.
 
 1. Create a database named `blog`.
+use blog
 2. Create a collection called 'articles'.
+db.createCollection('articles')
 3. Insert multiple documents(at least 3) into articles. It should have fields
 
 - title as string
@@ -33,13 +35,18 @@ Write code to execute below expressions.
 ```
 
 4. Find all the articles using `db.COLLECTION_NAME.find()`
-5. Find a document using \_id field.
+5. Find a document using \_id field.  
 6. 1. Find documents using title
 7. 2. Find documents using author's name field.
 8. Find document using a specific tag.
+db.articles.find({tags:['js', 'mongo']})
 
 9. Update title of a document using its \_id field.
+
 10. Update a author's name using article's title.
+db.articles.update({title: 'Ashwini Gupta'},
+{$push:{author: {name: 'Ashwini'}})
+    
 11. rename details field to description from all articles in articles collection.
 12. Add additional tag in a specific document.
 
